@@ -50,7 +50,8 @@ function WritePost() {
             return {
                 ...prevData,
                 title: "",
-                message: ""
+                message: "",
+                id: nanoid()
             }
         })
     }
@@ -77,20 +78,6 @@ function WritePost() {
     }
 
     function savePost(id) {
-        const newFeed = [...feed]
-        newFeed.map(feedPost => {
-            return feedPost.id === id ?
-                {
-                    ...feedPost,
-                    title: textData.title,
-                    message: textData.message
-                } :
-            feedPost
-        })
-    }
-
-    function savePost(id) {
-        // const newFeed = [...feed]
         setFeed(prevFeed => prevFeed.map(feedPost => {
             return feedPost.id === id ?
                 {
@@ -111,14 +98,6 @@ function WritePost() {
 
         setEditing(false)
     }
-
-    // setTextData(prevData => {
-    //     return {
-    //         ...prevData,
-    //         title: textData.title,
-    //         message: textData.message
-    //     }
-    // })
 
     console.log(textData)
     console.log(feed)
