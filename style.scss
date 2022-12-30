@@ -22,12 +22,7 @@ $white: #ffffff;
 body {
     color: $white;
     background-color: $black;
-    // display: flex;
-    // justify-content: center;
-    // min-height: 100vh;
-    // align-items: center;
-    // width: 85%;
-    // margin: 0 auto;
+    padding: 6rem 0;
 }
 
 button {
@@ -39,6 +34,12 @@ button {
     border: 1px solid $black-bean;
     border-radius: 6px;
     cursor: pointer;
+}
+
+.btn-empty {
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 input, textarea {
@@ -67,19 +68,6 @@ textarea {
     max-width: 750px;
 }
 
-// .welcome {
-
-//     button {
-//         font-size: 1rem;
-//         padding: 0.7rem 1.8rem;
-//         margin-top: 1.2rem;
-//         color: $glossy;
-//         background: $black-bean;
-//         border: 1px solid $black-bean;
-//         border-radius: 6px;
-//         cursor: pointer;
-//     }
-// }
 
 .post-inputs {
     display: flex;
@@ -107,7 +95,21 @@ textarea {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 85%;
+    max-width: 750px;
 
+}
+
+.feed {
+   width: 100%; 
+}
+
+.feed-container {
+    margin-top: 5rem;
+
+    h3 {
+        text-align: left;
+    }
 }
 
 .plus-icon {
@@ -131,9 +133,6 @@ textarea {
     gap: 20px;
 
     button {
-        background: none;
-        border: none;
-        padding: 0;
         margin: 0;
     }
 }
@@ -145,13 +144,43 @@ textarea {
     margin-top: 2rem;
     gap: 20px;
 
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+    }
+
     h1 {
         color: $mauve;
         word-break: break-word;
     }
 }
 
-// .feed {
-//     text-align: left;
-// }
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #000000e8;
+    color: white;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.back-btn {
+    width: 85%;
+    max-width: 750px;
+    text-align: left;
+    color: $mauve;
+    background: none;
+    border: none;
+    padding: 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}

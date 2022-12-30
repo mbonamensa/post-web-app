@@ -1,33 +1,40 @@
-import WritePost from "./WritePost"
+import WritePost from "./Home"
 import { FaPlus, FaRegEdit, FaTrashAlt } from "react-icons/fa"
 import ViewPost from "./ViewPost"
 
 function Feed(props) {
-
     const onePost = props.onePost
     // console.log(onePost)
     return(
         <>
         <div className="feed">
             <div className="post-heading">
-                <h1 onClick={props.viewSinglePost}>{props.postTitle}</h1>
+                <button className="btn-empty" onClick={props.viewSinglePost}>
+                    <h1>{props.postTitle}</h1>
+                </button>
                 <div className="heading-icons">
-                    <button onClick={props.editPost}>
+                    <button className="btn-empty" onClick={props.editPost}>
                         <FaRegEdit className="edit-icon"/>
                     </button>
-                    <button onClick={props.deletePost}>
+                    <button className="btn-empty" onClick={props.deletePost}>
                         <FaTrashAlt className="delete-icon"/>
                     </button>
                 </div>
             </div>
-            <div className="post-paragraph">
-                <p>{props.postMessage.slice(0, 200)}...</p>
-                <a href="#">View more...</a>
-            </div>
+            {props.postMessage.length > 200 ? 
+                (<div className="post-paragraph"> 
+                    <p>{ `${props.postMessage.slice(0, 200)}...`}</p>
+                    <button className="btn-empty" onClick={props.viewSinglePost}><p>View entire post...</p></button>  
+                </div>) :
+               ( <div className="post-paragraph"> 
+                <p>{props.postMessage}</p>
+                </div>)
+            }
+            
+
             <hr />
         </div>
-
-        {onePost && <ViewPost postTitle={props.postTitle} postMessage={props.postMessage}/>}
+           
 
         </>
     )

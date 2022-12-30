@@ -9,6 +9,7 @@
 body {
   color: #ffffff;
   background-color: #191716;
+  padding: 6rem 0;
 }
 
 button {
@@ -20,6 +21,12 @@ button {
   border: 1px solid #440d0f;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.btn-empty {
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 input, textarea {
@@ -73,6 +80,19 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 85%;
+  max-width: 750px;
+}
+
+.feed {
+  width: 100%;
+}
+
+.feed-container {
+  margin-top: 5rem;
+}
+.feed-container h3 {
+  text-align: left;
 }
 
 .plus-icon {
@@ -96,9 +116,6 @@ textarea {
   gap: 20px;
 }
 .heading-icons button {
-  background: none;
-  border: none;
-  padding: 0;
   margin: 0;
 }
 
@@ -109,7 +126,41 @@ textarea {
   margin-top: 2rem;
   gap: 20px;
 }
+.post-heading button {
+  background: none;
+  border: none;
+  padding: 0;
+}
 .post-heading h1 {
   color: #84596b;
   word-break: break-word;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9098039216);
+  color: white;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-btn {
+  width: 85%;
+  max-width: 750px;
+  text-align: left;
+  color: #84596b;
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }/*# sourceMappingURL=style.css.map */

@@ -1,11 +1,9 @@
 
 
 function NewPost(props) {
-    // const edit = props.editing
-    // console.log(edit)
     return (
         <div className="write-post">
-            <h1>Add New Post</h1>
+            <h1>Post App</h1>
             <div className="post-inputs">
                 <input onChange={props.handleChange} type="text" name="title" value={props.textData.title} placeholder="Title..." required/>
                 <textarea onChange={props.handleChange} name="message" id="message" value={props.textData.message} placeholder="Write somethin..." required/>

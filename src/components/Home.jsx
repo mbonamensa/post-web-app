@@ -2,11 +2,11 @@ import {  useEffect, useState } from "react"
 import { nanoid } from "nanoid"
 import Feed from "./Feed"
 import ViewPost from "./ViewPost"
-import Welcome from "./Welcome"
 import NewPost from "./NewPost"
+import { FaArrowLeft } from "react-icons/fa"
 
 
-function WritePost() {
+function Home() {
     // State Hooks
     const [textData, setTextData] = useState({
         title: "",
@@ -14,14 +14,17 @@ function WritePost() {
         id: nanoid()
     })
     const [feed, setFeed] = useState(() => JSON.parse(localStorage.getItem("feed")) || [])
-    const [firstPost, setFirstPost] = useState(false)
     const [editing, setEditing] = useState(false)
     const [onePost, setOnePost] = useState(false)
+    const [onePostFeed, setOnePostFeed] = useState(feed)
+    const [overlay, setOverlay] = useState(false)
+
 
     // Effect Hooks
     useEffect(() => {
         localStorage.setItem("feed", JSON.stringify(feed))
     }, [feed])
+
 
     // Functions
     function handleChange(event) {
@@ -31,12 +34,6 @@ function WritePost() {
                 [event.target.name] : event.target.value
             }
         })
-    }
-// console.log(textData.title)
-
-    function createFirstPost() {
-        setFirstPost(true)
-        console.log("new post!")
     }
 
     function postFeed() {
@@ -57,7 +54,20 @@ function WritePost() {
     }
 
     function viewSinglePost(id) {
+        setOnePostFeed(feed)
         console.log(`${id} about to be viewed!`)
+        const newFeed = [...feed]
+        const index = newFeed.findIndex(obj => obj.id === id)
+        newFeed.map(feedPost => {
+            return feedPost.id === id ?
+                setOnePostFeed(prevFeed => prevFeed.filter(post => {
+                    return post.id === id
+                }))
+            : feedPost
+        })
+
+       setOnePost(true)
+       setOverlay(true)
     }
 
     function editPost(id) {
@@ -75,6 +85,7 @@ function WritePost() {
             : feedPost
         })
         setEditing(true)
+        setOverlay(false)
     }
 
     function savePost(id) {
@@ -83,7 +94,7 @@ function WritePost() {
                 {
                     ...feedPost,
                     title: textData.title,
-                    message: textData.message
+                    message: textData.message,
                 } :
             feedPost
         }))
@@ -92,18 +103,22 @@ function WritePost() {
             return {
                 ...prevData,
                 title: "",
-                message: ""
+                message: "",
+                id: nanoid()
             }
         })
 
         setEditing(false)
     }
 
-    console.log(textData)
-    console.log(feed)
     function deletePost(id) {
         console.log(`${id} deleted!`)
         setFeed(prevFeed => prevFeed.filter(post => post.id !== id))
+        setOverlay(false)
+    }
+    
+    function backToFeed() {
+        setOverlay(false)
     }
 
     const feedElements = feed.map(feedPost => {
@@ -117,21 +132,36 @@ function WritePost() {
             onePost={onePost}
         />
     })
+
+    const singlePostElements = onePostFeed.map(postFeed => {
+        return <ViewPost 
+            key={postFeed.id} 
+            postTitle={postFeed.title} 
+            postMessage={postFeed.message} 
+            editPost={() => editPost(postFeed.id)} 
+            deletePost={() => deletePost(postFeed.id)}
+        />
+    })
     
     // Component Render
     return (
         <>
+            
+            <NewPost handleChange={handleChange} textData={textData} postFeed={postFeed} editing={editing} savePost={() => savePost(textData.id)}/>
+            <div className="feed-container">     
+                {feed.length === 0 ? 
+                    <h3>&#x1F440; Want to add a post?</h3>  
+                    :  
+                    <h3>Your feed looks awesome &#128525;</h3>
+                    }
+                {feedElements}
+            </div> 
+            
 
-            {feed.length === 0 ?
-            (firstPost ?  <NewPost handleChange={handleChange} textData={textData} postFeed={postFeed} editing={editing} savePost={() => savePost(textData.id)}/> : <Welcome createFirstPost={createFirstPost}/>)
-                :
-                (<div>
-                    {feed.length > 0 && <NewPost handleChange={handleChange} textData={textData} postFeed={postFeed} editing={editing} savePost={() => savePost(textData.id)}/>}
-                    {feedElements}
-                </div> )
-            }         
-
-            {/* <ViewPost postTitle={}/> */}
+            {overlay && <div className="overlay">
+                <button className="back-btn" onClick={backToFeed}><FaArrowLeft />back</button>
+                {onePost && singlePostElements} 
+            </div> }    
 
         </>
     )
@@ -140,4 +170,4 @@ function WritePost() {
 
 }
 
-export default WritePost
+export default Home
