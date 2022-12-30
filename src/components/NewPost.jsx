@@ -6,7 +6,7 @@ function NewPost(props) {
             <h1>Post App</h1>
             <div className="post-inputs">
                 <input onChange={props.handleChange} type="text" name="title" value={props.textData.title} placeholder="Title..." required/>
-                <textarea onChange={props.handleChange} name="message" id="message" value={props.textData.message} placeholder="Write somethin..." required/>
+                <textarea onChange={props.handleChange} name="message" id="message" value={props.textData.message} placeholder="Write something..." required/>
                 <button 
                     onClick={props.editing ? props.savePost : props.postFeed} 
                     className={props.textData.message  && props.textData.title ? "" : "button-disabled"}
