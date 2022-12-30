@@ -76,21 +76,51 @@ function WritePost() {
         setEditing(true)
     }
 
-    function savePost(id, newTitle, newMessage) {
-        setFeed(prevFeed => prevFeed.map(feedPost => {
+    function savePost(id) {
+        const newFeed = [...feed]
+        newFeed.map(feedPost => {
             return feedPost.id === id ?
-            setTextData(prevData => {
-                return {
-                    ...prevData,
-                    title: newTitle,
-                    message: newMessage
-                }
-            }) :
-            prevFeed
-        }))
+                {
+                    ...feedPost,
+                    title: textData.title,
+                    message: textData.message
+                } :
+            feedPost
+        })
     }
 
-    // console.log(editing)
+    function savePost(id) {
+        // const newFeed = [...feed]
+        setFeed(prevFeed => prevFeed.map(feedPost => {
+            return feedPost.id === id ?
+                {
+                    ...feedPost,
+                    title: textData.title,
+                    message: textData.message
+                } :
+            feedPost
+        }))
+
+        setTextData(prevData => {
+            return {
+                ...prevData,
+                title: "",
+                message: ""
+            }
+        })
+
+        setEditing(false)
+    }
+
+    // setTextData(prevData => {
+    //     return {
+    //         ...prevData,
+    //         title: textData.title,
+    //         message: textData.message
+    //     }
+    // })
+
+    console.log(textData)
     console.log(feed)
     function deletePost(id) {
         console.log(`${id} deleted!`)
@@ -114,10 +144,10 @@ function WritePost() {
         <>
 
             {feed.length === 0 ?
-            (firstPost ?  <NewPost handleChange={handleChange} textData={textData} postFeed={postFeed} editing={editing} savePost={savePost}/> : <Welcome createFirstPost={createFirstPost}/>)
+            (firstPost ?  <NewPost handleChange={handleChange} textData={textData} postFeed={postFeed} editing={editing} savePost={() => savePost(textData.id)}/> : <Welcome createFirstPost={createFirstPost}/>)
                 :
                 (<div>
-                    {feed.length > 0 && <NewPost handleChange={handleChange} textData={textData} postFeed={postFeed} editing={editing} savePost={() => savePost(textData.id, textData.title, textData.message)}/>}
+                    {feed.length > 0 && <NewPost handleChange={handleChange} textData={textData} postFeed={postFeed} editing={editing} savePost={() => savePost(textData.id)}/>}
                     {feedElements}
                 </div> )
             }         
