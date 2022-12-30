@@ -1,0 +1,20 @@
+Challenge map and features
+- Create posts
+- View one post
+- View all posts
+- Update posts
+- Delete posts
+
+Interface
+- Welcome screen when there are no posts to show
+- Post Screen with text editor
+- Posts screen with multiple posts
+    - Post preview with edit and delete buttons
+    - Add new post button
+
+Components
+- App
+- Welcome
+- WritePost
+- Feed
+

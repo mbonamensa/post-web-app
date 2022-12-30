@@ -1,0 +1,157 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+// Variables
+// colors
+$black: #191716;
+$black-bean: #440d0f;
+$catawba: #603a40;
+$mauve: #84596b;
+$glossy: #af9bb6;
+$white: #ffffff;
+
+
+// Root styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+}
+
+body {
+    color: $white;
+    background-color: $black;
+    // display: flex;
+    // justify-content: center;
+    // min-height: 100vh;
+    // align-items: center;
+    // width: 85%;
+    // margin: 0 auto;
+}
+
+button {
+    font-size: 1rem;
+    padding: 0.7rem 1.8rem;
+    margin-top: 1.2rem;
+    color: $glossy;
+    background: $black-bean;
+    border: 1px solid $black-bean;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background: none;
+    color: $glossy;
+    border: 0.5px solid $catawba;
+}
+
+input {
+    height: 40px;
+    
+}
+
+textarea {
+    resize: vertical;
+    width: 100%;
+    height: 80px;
+}
+.App {
+    text-align: center;
+    width: 85%;
+    margin: 0 auto;
+    max-width: 750px;
+}
+
+// .welcome {
+
+//     button {
+//         font-size: 1rem;
+//         padding: 0.7rem 1.8rem;
+//         margin-top: 1.2rem;
+//         color: $glossy;
+//         background: $black-bean;
+//         border: 1px solid $black-bean;
+//         border-radius: 6px;
+//         cursor: pointer;
+//     }
+// }
+
+.post-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem; 
+    margin-top: 1rem;
+
+    button {
+        width: 100%;
+        padding: 0.5rem 1.8rem;
+        max-width: 200px;
+        align-self: flex-end;
+    }
+}
+
+.button-disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.view-post, .feed {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+
+.plus-icon {
+    align-self: flex-end;
+    color: $glossy;
+    font-size: 1.3rem;
+}
+
+.edit-icon {
+    color: $mauve;
+    font-size: 1.2rem;
+}
+
+.delete-icon {
+    color: $catawba;
+}
+
+.heading-icons {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.post-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 20px;
+
+    h1 {
+        color: $mauve;
+        word-break: break-word;
+    }
+}
+
+// .feed {
+//     text-align: left;
+// }
+

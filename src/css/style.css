@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
+}
+
+body {
+  color: #ffffff;
+  background-color: #191716;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.7rem 1.8rem;
+  margin-top: 1.2rem;
+  color: #af9bb6;
+  background: #440d0f;
+  border: 1px solid #440d0f;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background: none;
+  color: #af9bb6;
+  border: 0.5px solid #603a40;
+}
+
+input {
+  height: 40px;
+}
+
+textarea {
+  resize: vertical;
+  width: 100%;
+  height: 80px;
+}
+
+.App {
+  text-align: center;
+  width: 85%;
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+.post-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-top: 1rem;
+}
+.post-inputs button {
+  width: 100%;
+  padding: 0.5rem 1.8rem;
+  max-width: 200px;
+  align-self: flex-end;
+}
+
+.button-disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.view-post, .feed {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.plus-icon {
+  align-self: flex-end;
+  color: #af9bb6;
+  font-size: 1.3rem;
+}
+
+.edit-icon {
+  color: #84596b;
+  font-size: 1.2rem;
+}
+
+.delete-icon {
+  color: #603a40;
+}
+
+.heading-icons {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+.heading-icons button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 20px;
+}
+.post-heading h1 {
+  color: #84596b;
+  word-break: break-word;
+}/*# sourceMappingURL=style.css.map */
