@@ -134,6 +134,7 @@ textarea {
 .post-heading h1 {
   color: #84596b;
   word-break: break-word;
+  text-align: left;
 }
 
 .overlay {
