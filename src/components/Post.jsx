@@ -12,9 +12,9 @@ function Post(props) {
                     <h1>{props.postTitle}</h1>
                 </button>
                 <div className="heading-icons">
-                    <button className="btn-empty" onClick={props.editPost}>
+                <a href="#"><button className="btn-empty" onClick={props.editPost}>
                         <FaRegEdit className="edit-icon"/>
-                    </button>
+                    </button></a>
                     <button className="btn-empty" onClick={props.deletePost}>
                         <FaTrashAlt className="delete-icon"/>
                     </button>
