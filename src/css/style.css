@@ -75,7 +75,7 @@ textarea {
   cursor: not-allowed;
 }
 
-.view-post, .feed {
+.view-single-post, .post {
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -84,7 +84,7 @@ textarea {
   max-width: 750px;
 }
 
-.feed {
+.post {
   width: 100%;
 }
 

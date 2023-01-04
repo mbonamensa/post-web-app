@@ -1,6 +1,6 @@
 
 
-function NewPost(props) {
+function AddNewPost(props) {
     return (
         <div className="write-post">
             <h1>Post App</h1>
@@ -16,4 +16,4 @@ function NewPost(props) {
         </div>
     )
 }
-export default NewPost
+export default AddNewPost

@@ -90,7 +90,7 @@ textarea {
     cursor: not-allowed;
 }
 
-.view-post, .feed {
+.view-single-post, .post {
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -100,7 +100,7 @@ textarea {
 
 }
 
-.feed {
+.post {
    width: 100%; 
 }
 

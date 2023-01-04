@@ -1,9 +1,9 @@
 import { FaRegEdit, FaTrashAlt } from "react-icons/fa"
 
-function ViewPost(props) {
+function ViewSinglePost(props) {
 
     return (
-        <div className="view-post">
+        <div className="view-single-post">
             <div className="post-heading">
                 <h1>{props.postTitle}</h1>
                 <div className="heading-icons">
@@ -22,4 +22,4 @@ function ViewPost(props) {
     )
 }
 
-export default ViewPost
+export default ViewSinglePost

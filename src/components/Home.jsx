@@ -1,8 +1,8 @@
 import {  useEffect, useState } from "react"
 import { nanoid } from "nanoid"
-import Feed from "./Feed"
-import ViewPost from "./ViewPost"
-import NewPost from "./NewPost"
+import Post from "./Post"
+import ViewSinglePost from "./ViewSinglePost"
+import AddNewPost from "./AddNewPost"
 import { FaArrowLeft } from "react-icons/fa"
 
 
@@ -55,6 +55,7 @@ function Home() {
 
     function viewSinglePost(id) {
         setSinglePostView(feed)
+        const newFeed = [...feed]
         newFeed.map(feedPost => {
             return feedPost.id === id ?
                 setSinglePostView(prevFeed => prevFeed.filter(post => {
@@ -63,7 +64,7 @@ function Home() {
             : feedPost
         })
 
-       setOnePost(true)
+       setSinglePost(true)
        setOverlay(true)
     }
 
@@ -119,7 +120,7 @@ function Home() {
     }
 
     const feedElements = feed.map(feedPost => {
-        return <Feed 
+        return <Post 
             key={feedPost.id} 
             postTitle={feedPost.title} 
             postMessage={feedPost.message} 
@@ -131,7 +132,7 @@ function Home() {
     })
 
     const singlePostElements = singlePostView.map(postFeed => {
-        return <ViewPost 
+        return <ViewSinglePost 
             key={postFeed.id} 
             postTitle={postFeed.title} 
             postMessage={postFeed.message} 
@@ -144,7 +145,7 @@ function Home() {
     return (
         <>
             
-            <NewPost handleChange={handleChange} textData={textData} postFeed={postFeed} editing={editing} savePost={() => savePost(textData.id)}/>
+            <AddNewPost handleChange={handleChange} textData={textData} postFeed={postFeed} editing={editing} savePost={() => savePost(textData.id)}/>
             <div className="feed-container">     
                 {feed.length === 0 ? 
                     <h3>&#x1F440; Want to add a post?</h3>  

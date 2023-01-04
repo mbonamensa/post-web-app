@@ -1,12 +1,12 @@
 import WritePost from "./Home"
 import { FaPlus, FaRegEdit, FaTrashAlt } from "react-icons/fa"
-import ViewPost from "./ViewPost"
+import ViewPost from "./ViewSinglePost"
 
-function Feed(props) {
+function Post(props) {
 
     return(
         <>
-        <div className="feed">
+        <div className="post">
             <div className="post-heading">
                 <button className="btn-empty" onClick={props.viewSinglePost}>
                     <h1>{props.postTitle}</h1>
@@ -39,4 +39,4 @@ function Feed(props) {
     )
 }
 
-export default Feed
+export default Post
