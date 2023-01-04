@@ -1,6 +1,6 @@
-import WritePost from "./Home"
-import { FaPlus, FaRegEdit, FaTrashAlt } from "react-icons/fa"
-import ViewPost from "./ViewSinglePost"
+
+import { FaRegEdit, FaTrashAlt } from "react-icons/fa"
+
 
 function Post(props) {
 

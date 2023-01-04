@@ -2,7 +2,7 @@ import {  useEffect, useState } from "react"
 import { nanoid } from "nanoid"
 import Post from "./Post"
 import ViewSinglePost from "./ViewSinglePost"
-import AddNewPost from "./AddNewPost"
+import CreateAndEditPost from "./CreateAndEditPost"
 import { FaArrowLeft } from "react-icons/fa"
 
 
@@ -145,7 +145,7 @@ function Home() {
     return (
         <>
             
-            <AddNewPost handleChange={handleChange} textData={textData} postFeed={postFeed} editing={editing} savePost={() => savePost(textData.id)}/>
+            <CreateAndEditPost handleChange={handleChange} textData={textData} postFeed={postFeed} editing={editing} savePost={() => savePost(textData.id)}/>
             <div className="feed-container">     
                 {feed.length === 0 ? 
                     <h3>&#x1F440; Want to add a post?</h3>  
