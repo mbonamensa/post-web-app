@@ -15,8 +15,8 @@ function Home() {
     })
     const [feed, setFeed] = useState(() => JSON.parse(localStorage.getItem("feed")) || [])
     const [editing, setEditing] = useState(false)
-    const [onePost, setOnePost] = useState(false)
-    const [onePostFeed, setOnePostFeed] = useState(feed)
+    const [singlePost, setSinglePost] = useState(false)
+    const [singlePostView, setSinglePostView] = useState(feed)
     const [overlay, setOverlay] = useState(false)
 
 
@@ -54,13 +54,10 @@ function Home() {
     }
 
     function viewSinglePost(id) {
-        setOnePostFeed(feed)
-        console.log(`${id} about to be viewed!`)
-        const newFeed = [...feed]
-        const index = newFeed.findIndex(obj => obj.id === id)
+        setSinglePostView(feed)
         newFeed.map(feedPost => {
             return feedPost.id === id ?
-                setOnePostFeed(prevFeed => prevFeed.filter(post => {
+                setSinglePostView(prevFeed => prevFeed.filter(post => {
                     return post.id === id
                 }))
             : feedPost
@@ -129,11 +126,11 @@ function Home() {
             editPost={() => editPost(feedPost.id)} 
             deletePost={() => deletePost(feedPost.id)}
             viewSinglePost={() => viewSinglePost(feedPost.id)}
-            onePost={onePost}
+            singlePost={singlePost}
         />
     })
 
-    const singlePostElements = onePostFeed.map(postFeed => {
+    const singlePostElements = singlePostView.map(postFeed => {
         return <ViewPost 
             key={postFeed.id} 
             postTitle={postFeed.title} 
@@ -160,7 +157,7 @@ function Home() {
 
             {overlay && <div className="overlay">
                 <button className="back-btn" onClick={backToFeed}><FaArrowLeft />back</button>
-                {onePost && singlePostElements} 
+                {singlePost && singlePostElements} 
             </div> }    
 
         </>

@@ -3,8 +3,7 @@ import { FaPlus, FaRegEdit, FaTrashAlt } from "react-icons/fa"
 import ViewPost from "./ViewPost"
 
 function Feed(props) {
-    const onePost = props.onePost
-    // console.log(onePost)
+
     return(
         <>
         <div className="feed">
