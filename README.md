@@ -4,7 +4,6 @@
 ## Table of contents
 
 - [Overview](#overview)
-  - [Project question](#project-question)
   - [Screenshots](#screenshots)
   - [Links](#links)
 - [My process](#my-process)
