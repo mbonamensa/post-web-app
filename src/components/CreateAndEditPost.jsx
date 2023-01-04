@@ -8,7 +8,7 @@ function AddNewPost(props) {
                 <input onChange={props.handleChange} type="text" name="title" value={props.textData.title} placeholder="Title..." required/>
                 <textarea onChange={props.handleChange} name="message" id="message" value={props.textData.message} placeholder="Write something..." required/>
                 <button 
-                    onClick={props.editing ? props.savePost : props.postFeed} 
+                    onClick={props.editing ? props.savePost : props.addPost} 
                     className={props.textData.message  && props.textData.title ? "" : "button-disabled"}
                 >{props.editing ? "Save Post" : "Post"}</button>
                 

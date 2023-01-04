@@ -36,7 +36,7 @@ function Home() {
         })
     }
 
-    function postFeed() {
+    function addPost() {
         if(textData.message && textData.title) {
             setFeed(prevFeed => {
                 return [...prevFeed, textData]
@@ -110,7 +110,6 @@ function Home() {
     }
 
     function deletePost(id) {
-        console.log(`${id} deleted!`)
         setFeed(prevFeed => prevFeed.filter(post => post.id !== id))
         setOverlay(false)
     }
@@ -145,7 +144,7 @@ function Home() {
     return (
         <>
             
-            <CreateAndEditPost handleChange={handleChange} textData={textData} postFeed={postFeed} editing={editing} savePost={() => savePost(textData.id)}/>
+            <CreateAndEditPost handleChange={handleChange} textData={textData} addPost={addPost} editing={editing} savePost={() => savePost(textData.id)}/>
             <div className="feed-container">     
                 {feed.length === 0 ? 
                     <h3>&#x1F440; Want to add a post?</h3>  
