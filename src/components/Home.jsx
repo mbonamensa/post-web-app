@@ -1,14 +1,15 @@
 import {  useEffect, useState } from "react"
 import { nanoid } from "nanoid"
 import Post from "./Post"
+import { FaArrowLeft } from "react-icons/fa"
 import ViewSinglePost from "./ViewSinglePost"
 import CreateAndEditPost from "./CreateAndEditPost"
-import { FaArrowLeft } from "react-icons/fa"
+
 
 
 function Home() {
     // State Hooks
-    const [textData, setTextData] = useState({
+    const [postData, setPostData] = useState({
         title: "",
         message: "",
         id: nanoid()
@@ -28,7 +29,7 @@ function Home() {
 
     // Functions
     function handleChange(event) {
-        setTextData(prevText => {
+        setPostData(prevText => {
             return {
                 ...prevText,
                 [event.target.name] : event.target.value
@@ -37,13 +38,13 @@ function Home() {
     }
 
     function addPost() {
-        if(textData.message && textData.title) {
+        if(postData.message && postData.title) {
             setFeed(prevFeed => {
-                return [...prevFeed, textData]
+                return [...prevFeed, postData]
             })
         }
 
-        setTextData(prevData => {
+        setPostData(prevData => {
             return {
                 ...prevData,
                 title: "",
@@ -72,7 +73,7 @@ function Home() {
         const newFeed = [...feed]
         newFeed.map(feedPost => {
             return feedPost.id === id ?
-            setTextData(prevData => {
+            setPostData(prevData => {
                 return {
                     ...prevData,
                     title: feedPost.title,
@@ -91,13 +92,13 @@ function Home() {
             return feedPost.id === id ?
                 {
                     ...feedPost,
-                    title: textData.title,
-                    message: textData.message,
+                    title: postData.title,
+                    message: postData.message,
                 } :
             feedPost
         }))
 
-        setTextData(prevData => {
+        setPostData(prevData => {
             return {
                 ...prevData,
                 title: "",
@@ -144,7 +145,7 @@ function Home() {
     return (
         <>
             
-            <CreateAndEditPost handleChange={handleChange} textData={textData} addPost={addPost} editing={editing} savePost={() => savePost(textData.id)}/>
+            <CreateAndEditPost handleChange={handleChange} postData={postData} addPost={addPost} editing={editing} savePost={() => savePost(postData.id)}/>
             <div className="feed-container">     
                 {feed.length === 0 ? 
                     <h3>&#x1F440; Want to add a post?</h3>  
